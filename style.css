@@ -8,13 +8,16 @@
 .result-container {
   width: auto;
   height: 240px;
-  font-size: 70px;
+  font-size: 43px;
   font-weight: 500;
   flex-direction: row-reverse;
   justify-content: flex-start;
   align-items: flex-end;
-  padding-right: 22px;
+  padding-right: 7px;
 }
+/* .result-scr {
+  flex-wrap: wrap;
+} */
 
 ._flex {
   display: flex;
