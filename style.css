@@ -8,7 +8,7 @@
 .result-container {
   width: auto;
   height: 240px;
-  font-size: 43px;
+  font-size: 43px; /* it's better to do fs scalable */
   font-weight: 500;
   flex-direction: row-reverse;
   justify-content: flex-start;
