@@ -26,24 +26,26 @@ const calculateResult = function () {
 
 switch (actionSign) {
   case '+':
-    finalResult = numOne+numTwo;
+    finalResult = (numOne*1000000+numTwo*1000000)/1000000;
     break;
 
   case '-':
-    finalResult = numOne-numTwo;
+    finalResult = (numOne*1000000-numTwo*1000000)/1000000;
     break;
 
   case '/':
-    finalResult = numOne/numTwo;
+    finalResult = ((numOne*1000000)/(numTwo*1000000));
         break;
     case 'X':
-    finalResult = numOne*numTwo;
+    finalResult = ((numOne*1000000)*(numTwo*1000000))/1000000000000;
     break;
     }
     resultScreenRef.textContent = finalResult;
-    console.log(resultScreenRef.textContent.length);
     if (resultScreenRef.textContent.length>10) {
         resultScreenRef.classList.add('sm-fs');
+    }
+    if (finalResult === 5 / 0) {
+        resultScreenRef.textContent = 'division by zero';
     }
     
 }
@@ -78,7 +80,17 @@ btnContainerRef.addEventListener('click', function (e) {
     }
     const eTxt = e.target.textContent;
     if (numTwo === '' && actionSign === ''&& numerals.includes(eTxt)&&numOne.length<9) {
+        if (numOne.includes('.') && eTxt === '.') {
+            return;
+        }
+        
         numOne += eTxt;
+        if (numOne === '.' && numOne.length === 1) {
+            numOne = '0.';
+        }
+        // if (!numOne.includes('.')) {
+        //     numOne = Number.parseInt(numOne, 10);
+        // }
         // Number.parseInt( "123FA", 10 );-прописать условие через isInteger, чтобы избав. от leading zero
     resultScreenRef.textContent = numOne;
 
@@ -88,8 +100,14 @@ btnContainerRef.addEventListener('click', function (e) {
         actionSign = eTxt;
     resultScreenRef.textContent = actionSign;
     }
-    if (numOne !== '' && actionSign !== '' && numerals.includes(eTxt)&&numTwo.length<9) {
+    if (numOne !== '' && actionSign !== '' && numerals.includes(eTxt) && numTwo.length < 9) {
+         if (numTwo.includes('.') && eTxt === '.') {
+            return;
+        }
         numTwo += eTxt;
+        if (numTwo === '.' && numTwo.length === 1) {
+            numTwo = '0.';
+        }
         resultScreenRef.textContent = numTwo;
     }
     if (numOne !== '' && actionSign !== '' && numTwo !== '' && eTxt === '=') {
@@ -110,6 +128,11 @@ btnContainerRef.addEventListener('click', function (e) {
             numOne = -numOne;
     resultScreenRef.textContent = numOne;
             
+        }
+        if (numOne !== '' && actionSign !== '' && numTwo !== '') {
+            numTwo = -numTwo;
+    resultScreenRef.textContent = numTwo;
+
         }
     }
     // console.log(numOne, actionSign, numTwo);
