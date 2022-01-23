@@ -14,6 +14,9 @@ const clearScreen = function () {
     numTwo = '';
     actionSign = '';
     resultScreenRef.textContent = '0';
+    if (resultScreenRef.classList.contains('sm-fs')) {
+        resultScreenRef.classList.remove('sm-fs');
+    }
 }
 const calculateResult = function () {
     numOne = Number(numOne);
@@ -38,6 +41,10 @@ switch (actionSign) {
     break;
     }
     resultScreenRef.textContent = finalResult;
+    console.log(resultScreenRef.textContent.length);
+    if (resultScreenRef.textContent.length>10) {
+        resultScreenRef.classList.add('sm-fs');
+    }
     
 }
 const calculatePercent = function () {
@@ -47,18 +54,20 @@ const calculatePercent = function () {
     let finalResultPercent;
     finalResultPercent = numOne / 100 * numTwo;
     if (Number.isInteger(finalResultPercent)) {
-    resultScreenRef.textContent = finalResultPercent;        
+    resultScreenRef.textContent = finalResultPercent; 
+           
     } else {
     const fixedResult = finalResultPercent.toFixed(7);
-        console.log(fixedResult);
         const noZero = fixedResult.toString();
-        console.log(noZero);
         const answerPercent = Number(noZero);
     resultScreenRef.textContent = answerPercent; 
     }
-   
+   if (resultScreenRef.textContent.length>10) {
+        resultScreenRef.classList.add('sm-fs');
+    }
 
 }
+
 btnContainerRef.addEventListener('click', function (e) {
     if (!e.target.classList.contains('btn')) {
         return;   
@@ -68,7 +77,7 @@ btnContainerRef.addEventListener('click', function (e) {
         clearScreen();
     }
     const eTxt = e.target.textContent;
-    if (numTwo === '' && actionSign === ''&& numerals.includes(eTxt)&&numOne.length<7) {
+    if (numTwo === '' && actionSign === ''&& numerals.includes(eTxt)&&numOne.length<9) {
         numOne += eTxt;
         // Number.parseInt( "123FA", 10 );-прописать условие через isInteger, чтобы избав. от leading zero
     resultScreenRef.textContent = numOne;
@@ -79,7 +88,7 @@ btnContainerRef.addEventListener('click', function (e) {
         actionSign = eTxt;
     resultScreenRef.textContent = actionSign;
     }
-    if (numOne !== '' && actionSign !== '' && numerals.includes(eTxt)&&numTwo.length<7) {
+    if (numOne !== '' && actionSign !== '' && numerals.includes(eTxt)&&numTwo.length<9) {
         numTwo += eTxt;
         resultScreenRef.textContent = numTwo;
     }
@@ -94,6 +103,14 @@ btnContainerRef.addEventListener('click', function (e) {
         numOne = '';
         numTwo = '';
         actionSign = '';
+    }
+    if (eTxt === '+/-') {
+        console.log('changing sign');
+        if (numTwo === '' && actionSign === ''&&numOne !== '') {
+            numOne = -numOne;
+    resultScreenRef.textContent = numOne;
+            
+        }
     }
     // console.log(numOne, actionSign, numTwo);
     return;

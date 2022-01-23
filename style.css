@@ -8,16 +8,16 @@
 .result-container {
   width: auto;
   height: 240px;
-  font-size: 43px; /* it's better to do fs scalable */
+  font-size: 60px; /* it's better to do fs scalable */
   font-weight: 500;
   flex-direction: row-reverse;
   justify-content: flex-start;
   align-items: flex-end;
   padding-right: 7px;
 }
-/* .result-scr {
-  flex-wrap: wrap;
-} */
+.result-scr.sm-fs {
+  font-size: 28px;
+}
 
 ._flex {
   display: flex;
@@ -44,10 +44,10 @@
   justify-content: start;
   padding-left: 28px;
 }
-.first-row .btn {
-  /* background-color: #a5a5a5; */
-  /* color: black; */
-}
+/* .first-row .btn {
+  background-color: #a5a5a5; */
+/* color: black;
+} */
 .orange-bg {
   background-color: #fe9f07;
 }
