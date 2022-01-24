@@ -13,7 +13,7 @@ const mathSignScreenRef = document.querySelector('.js-mathSignScreen');
 const numTwoScreenRef = document.querySelector('.js-numTwoScreen');
 const iSequalRef = document.querySelector('.js-iSequal');
 const clearScreen = function () {
-    console.log('AC')
+    // console.log('AC')
     numOne = '';
     numTwo = '';
     actionSign = '';
