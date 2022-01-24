@@ -10,13 +10,21 @@
   height: 240px;
   font-size: 60px; /* it's better to do fs scalable */
   font-weight: 500;
-  flex-direction: row-reverse;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: flex-end;
   padding-right: 7px;
 }
 .result-scr.sm-fs {
   font-size: 28px;
+}
+.digits {
+  flex-direction: column;
+}
+.digits-item {
+  font-size: 20px;
+  opacity: 0.3;
+  flex-direction: row-reverse;
 }
 
 ._flex {
