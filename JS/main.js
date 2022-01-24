@@ -149,9 +149,12 @@ btnContainerRef.addEventListener('click', function (e) {
             numTwo = -numTwo;
             resultScreenRef.textContent = numTwo;
             numTwoScreenRef.textContent = numTwo;
-
         }
+
     }
-    // console.log(numOne, actionSign, numTwo);
+// -------------------------audio-------------------------
+    const sound = document.querySelector('.js-sound');
+    sound.currentTime = 0;
+    sound.play();
     return;
 })
