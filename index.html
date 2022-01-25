@@ -10,6 +10,23 @@
   <body>
     <!-- you may add burger menu with help and settings; also add screens with numOne and numTwo and animation -->
     <div class="_container">
+      <!-- ------------pop-up menu ----->
+      <div class="menu-window hidden _flex js-menu-window">
+        <div class="menu-title _flex _center-content">
+          <div>MENU</div>
+          <div class="close-menuBtn js-close-menuBtn _center-content _flex">
+            x
+          </div>
+        </div>
+        <div class="menu-info-screen">info</div>
+        <div class="menu-list _flex">
+          <div>help</div>
+          <div>settings</div>
+          <div>about</div>
+          <div>changelog</div>
+        </div>
+      </div>
+      <!-- -------------------------- -->
       <div class="result-container _flex">
         <div class="digits _flex">
           <div class="digits-item js-numOneScreen _flex"></div>
@@ -19,6 +36,13 @@
         </div>
         <div class="js-result-screen result-scr">0</div>
       </div>
+      <!-- ------------tech btns------------- -->
+      <div class="tech-btns-container _flex">
+        <div class="techbtn js-menu">menu</div>
+        <div class="techbtn hidden">M</div>
+        <div class="techbtn js-soundOnOFF">sound</div>
+      </div>
+      <!-- ----------------------------------- -->
       <div class="_flex btn-container">
         <div class="first-row _flex">
           <div class="btn first-row-grey js-acBtn">AC</div>

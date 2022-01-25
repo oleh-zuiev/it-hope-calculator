@@ -12,6 +12,27 @@ const numOneScreenRef = document.querySelector('.js-numOneScreen');
 const mathSignScreenRef = document.querySelector('.js-mathSignScreen');
 const numTwoScreenRef = document.querySelector('.js-numTwoScreen');
 const iSequalRef = document.querySelector('.js-iSequal');
+// ------------------------------------------------------------
+const sound = document.querySelector('.js-sound');
+const soundOnOFFref = document.querySelector('.js-soundOnOFF');
+soundOnOFFref.addEventListener('click', function () {
+soundOnOFFref.classList.toggle('tbtn-inactive');    
+});
+const playSound = function () {
+    sound.currentTime = 0;
+    sound.play(); 
+}
+// ------------------------------------------------------------
+const closeMenuRef = document.querySelector('.js-close-menuBtn');
+const menuRef = document.querySelector('.js-menu');
+const menuWindowRef = document.querySelector('.js-menu-window');
+menuRef.addEventListener('click', function () {
+    menuWindowRef.classList.remove('hidden');
+});
+closeMenuRef.addEventListener('click', function () {
+    menuWindowRef.classList.add('hidden');
+});
+// ------------------------------------------------------------
 const clearScreen = function () {
     console.log('AC')
     numOne = '';
@@ -130,12 +151,20 @@ btnContainerRef.addEventListener('click', function (e) {
         numOne = '';
         numTwo = '';
         actionSign = '';
+        // numOneScreenRef.textContent = '';
+        // mathSignScreenRef.textContent = '';
+        // numTwoScreenRef.textContent = '';
+        // iSequalRef.textContent = '';
     }
     if (numOne !== '' && actionSign === 'X' && numTwo !== '' && eTxt === '%') {
         calculatePercent();
         numOne = '';
         numTwo = '';
         actionSign = '';
+        // numOneScreenRef.textContent = '';
+        // mathSignScreenRef.textContent = '';
+        // numTwoScreenRef.textContent = '';
+        // iSequalRef.textContent = '';
     }
     if (eTxt === '+/-') {
         console.log('changing sign');
@@ -152,9 +181,9 @@ btnContainerRef.addEventListener('click', function (e) {
         }
 
     }
-// -------------------------audio-------------------------
-    const sound = document.querySelector('.js-sound');
-    sound.currentTime = 0;
-    sound.play();
+    if (!soundOnOFFref.classList.contains('tbtn-inactive')) {
+        playSound();
+    }
+    
     return;
 })
