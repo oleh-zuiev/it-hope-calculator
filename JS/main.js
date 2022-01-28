@@ -13,7 +13,6 @@ const mathSignScreenRef = document.querySelector('.js-mathSignScreen');
 const numTwoScreenRef = document.querySelector('.js-numTwoScreen');
 const iSequalRef = document.querySelector('.js-iSequal');
 const clearScreen = function () {
-    // console.log('AC')
     numOne = '';
     numTwo = '';
     actionSign = '';
@@ -30,7 +29,6 @@ const calculateResult = function () {
     numOne = Number(numOne);
     numTwo = Number(numTwo);
     let finalResult;
-// const actionSign = '+';
 
 switch (actionSign) {
   case '+':
@@ -83,7 +81,6 @@ btnContainerRef.addEventListener('click', function (e) {
     if (!e.target.classList.contains('btn')) {
         return;   
     }
-    // resultScreenRef.textContent = eTxt;
     if (e.target.textContent === 'AC') {
         clearScreen();
     }
@@ -100,12 +97,10 @@ btnContainerRef.addEventListener('click', function (e) {
         if (!numOne.includes('.')) {
             numOne = (numOne * 1).toString();
         }
-        // Number.parseInt( "123FA", 10 );-прописать условие через isInteger, чтобы избав. от leading zero
         resultScreenRef.textContent = numOne;
         numOneScreenRef.textContent = numOne
 
     }
-    // console.log(numOne);
     if (numOne !== '' &&actionSign === ''&& mathOperators.includes(eTxt)) {
         actionSign = eTxt;
         resultScreenRef.textContent = actionSign;
@@ -152,6 +147,5 @@ btnContainerRef.addEventListener('click', function (e) {
 
         }
     }
-    // console.log(numOne, actionSign, numTwo);
     return;
 })

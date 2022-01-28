@@ -8,7 +8,7 @@
 .result-container {
   width: auto;
   height: 240px;
-  font-size: 50px; /* it's better to do fs scalable */
+  font-size: 50px;
   font-weight: 500;
   flex-direction: column;
   justify-content: space-between;
@@ -52,10 +52,6 @@
   justify-content: start;
   padding-left: 28px;
 }
-/* .first-row .btn {
-  background-color: #a5a5a5; */
-/* color: black;
-} */
 .orange-bg {
   background-color: #fe9f07;
 }
